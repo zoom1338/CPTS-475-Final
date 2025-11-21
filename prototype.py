@@ -30,8 +30,9 @@ def post_processing(df):
     return df
 
 # Load and prepare data
-df = pd.read_parquet("NF-UQ-NIDS.parquet")
+df = pd.read_parquet("NIDS_DF_processed.parquet")
 df_small = df.sample(20000, random_state=42)
+
 df_small = df_small.drop(columns=["Dataset"])
 
 categorical_cols = ["Attack", "Label"] # Later we can select only one or the other for comparison like isabella said
